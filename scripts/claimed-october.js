@@ -1,0 +1,53 @@
+window.renderClaimedPublication=function(m){
+ const d=octoberClubData,e=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ const icon=n=>`<i class="iconfont icon-${n}" aria-hidden="true"></i>`,asset=n=>'assets/claimed-october/'+n+'.png';
+ const button=(label,action,ico='Arrow_Forward-3',dark=false)=>`<button class="oc-button ${dark?'oc-dark':''}" data-rd-action="${action}">${icon(ico)}${label}</button>`;
+ const heading=(en,cn)=>`<header class="oc-heading"><span>${en}</span><h2>${cn}</h2></header>`;
+ return `<div class="rd-periodical pe-figma-detail oc-publication"><main class="oc-main"><header class="oc-header" id="oc-home"><span class="oc-eyebrow">十月少年文学 · READING CLUB</span><h1>十月少年文学</h1><p>一本杂志，一处阅读空间。读当期佳作，重温往期经典，让好故事陪伴每一天。</p><div class="oc-guide-row" id="oc-guides"><div class="oc-guides">${d.lecturers.profiles.map(p=>`<a class="oc-guide" href="${octoberCommunityRoute('lecturer',p.id)}"><img src="${p.avatar}" alt="${e(p.name)}"><span><strong>${e(p.name)}<b>领读人</b></strong><small>${e(p.role)}</small></span></a>`).join('')}</div>${button('成为会员','member','Group',true)}</div></header>
+ <section class="oc-feature" style="background-image:url('${asset('topic')}')"><div><span class="oc-feature-tag">1个精选集</span><span>ANIMAL STORIES · 2016—2023</span><h2>迷人的大自然之歌</h2><p>从创刊号的猞猁到赛汗塔拉的牧羊犬，动物小说是这本杂志最野性的基因。</p></div><a class="oc-button oc-dark" href="https://readclub.qikan.cn/shiyue#/topics/topic-mudsnwbq" target="_blank" rel="noopener">进入精选集 ${icon('Arrow_Forward-3')}</a><div class="oc-topic-articles" aria-label="精选集文章">${d.topic.items.list.slice(0,6).map((a,i)=>`<a class="oc-topic-article" href="https://readclub.qikan.cn/shiyue#/article/${encodeURIComponent(a.contentKey)}" target="_blank" rel="noopener"><span>${String(i+1).padStart(2,'0')}</span><h3>${e(a.title)}</h3><p>${e(a.summary)}</p><strong>${e(a.author)} · ${e(a.issueLabel)}</strong></a>`).join('')}</div></section>
+ <section class="oc-section" id="oc-archive"><div class="oc-section-top"><button class="oc-archive-title" data-rd-action="archive">${heading('THE ARCHIVE','往期杂志')}</button><div class="oc-years">${[2026,2025,2024,2023,2022,2021].map(y=>`<button data-oc-year="${y}" aria-pressed="${y===2026}">${y}</button>`).join('')}</div></div><div class="oc-issues">${d.issues.slice(0,8).map(a=>`<a data-oc-issue="${a.year}" href="${e(a.url)}" target="_blank" rel="noopener"><img loading="lazy" src="${a.src}" alt="十月少年文学 ${a.label}"><span>${a.label}</span></a>`).join('')}</div><p class="oc-year-empty" hidden>本地尚未收录这一年的封面。<a href="https://www.qikan.com.cn/mastmagazinearchive/03A8879F-287C-4465-B775-F7717C20A2E3.html" target="_blank" rel="noopener">查看完整往期 ${icon('Arrow_Forward-3')}</a></p></section>
+ <section class="oc-section" id="oc-podcasts">${heading('PODCAST','播客')}<div class="oc-podcasts">${['十一红：传承家乡戏勇敢挑战自我','勇敢的种子：探讨鼓励的力量与教育智慧','青石街有龙出没'].map((title,i)=>`<article class="oc-podcast oc-podcast-${i}"><img src="${asset('podcast-'+(i+1))}" alt="${title}"><div><small>9月15日</small><h3>${title}</h3><button class="oc-button" data-rd-content="${title}" data-rd-kind="音频">${icon('Play')}117分钟</button></div></article>`).join('')}</div></section>
+ <section class="oc-section oc-daily">${heading('SELECTED · 精选阅读','每日一读')}<div class="oc-daily-track">${d.daily.map(a=>`<a href="${e(a.url)}" target="_blank" rel="noopener" ><img class="oc-daily-cover" src="${a.cover}" alt="" loading="lazy"><strong>${e(a.title)}</strong><span>${e(a.author)}</span></a>`).join('')}</div></section>
+ <section class="oc-section">${heading('SELECTED ARTICLES','精选文章')}<div class="oc-articles">${d.articles.map(a=>`<a class="oc-article" href="${e(a.url)}" target="_blank" rel="noopener"><img loading="lazy" src="${a.cover}" alt="${e(a.title)}"><div><small>${e(a.author)}</small><span><h3>${e(a.title)}</h3><p>${e(a.summary)}</p></span></div>${icon('Arrow_Forward-3')}</a>`).join('')}</div></section>
+ <section class="oc-section oc-membership oc-member-plans" id="oc-membership"><div class="oc-section-top">${heading('MEMBERSHIP · 阅读同行',e(d.membership.plans[0].name))}<span class="oc-member-trial">${d.membership.trialDays}天试读</span></div><p class="oc-member-intro">${e(d.membership.plans[0].intro)}</p><div class="oc-member-plan-grid">${d.membership.plans[0].prices.filter(p=>p.enabled).map(p=>`<a class="oc-member-plan" href="https://readclub.qikan.cn/shiyue#/membership" target="_blank" rel="noopener"><span>${e(p.periodLabel)}会员</span><div><strong>¥${(p.priceFen/100).toFixed(2)}</strong><small> / ${p.durationDays}天</small></div><span class="oc-member-plan-link">开通${e(p.periodLabel)} ${icon('Arrow_Forward-3')}</span></a>`).join('')}</div><div class="oc-member-benefit-row"><div class="oc-member-benefits">${d.membership.plans[0].benefits.map(t=>`<span>${icon('SuccessII')}${e(t)}</span>`).join('')}</div><div class="oc-member-extras"><span>${d.membership.freeArticleCount}篇免费阅读</span>${d.membership.redeemEnabled?'<a href="https://readclub.qikan.cn/shiyue#/membership" target="_blank" rel="noopener">使用兑换码</a>':''}</div></div></section>
+ <footer class="oc-source"><a href="https://readclub.qikan.cn/shiyue#/" target="_blank" rel="noopener">文章来源：十月少年文学读书会</a> · 播客、领读及会员为设计交互演示</footer></main>
+ ${window.renderOctoberDock()}${renderResourceChat()}</div>`;
+};
+document.addEventListener('click',event=>{const button=event.target.closest('[data-oc-year]');if(!button)return;const root=button.closest('.oc-publication');root.querySelectorAll('[data-oc-year]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));let count=0;root.querySelectorAll('[data-oc-issue]').forEach(a=>{a.hidden=a.dataset.ocIssue!==button.dataset.ocYear;if(!a.hidden)count++;});root.querySelector('.oc-year-empty').hidden=count>0;});
+// True edge-to-edge wall, including scrollbar width and chat layout transitions.
+(()=>{
+ const initialized=new WeakSet();
+ function mount(){document.querySelectorAll('.oc-daily').forEach(wall=>{
+  if(initialized.has(wall))return;initialized.add(wall);
+  const main=wall.closest('.oc-main');let frame=0;
+  function measure(){frame=0;if(!wall.isConnected)return;
+   const current=parseFloat(getComputedStyle(wall).marginLeft)||0;
+   const origin=wall.getBoundingClientRect().left-current;
+   wall.style.setProperty('--oc-wall-width',document.documentElement.clientWidth+'px');
+   wall.style.setProperty('--oc-wall-offset',-origin+'px');
+  }
+  function schedule(){if(!frame)frame=requestAnimationFrame(measure);}
+  const observer=new ResizeObserver(schedule);observer.observe(main);
+  window.addEventListener('resize',schedule);
+  const removed=new MutationObserver(()=>{if(!wall.isConnected){observer.disconnect();removed.disconnect();cancelAnimationFrame(frame);window.removeEventListener('resize',schedule);}});
+  removed.observe(document.body,{childList:true,subtree:true});
+  measure();
+  const track=wall.querySelector('.oc-daily-track');
+  if(track)requestAnimationFrame(()=>{track.scrollLeft=Math.max(0,(track.scrollWidth-track.clientWidth)/2);});
+ });}
+ new MutationObserver(mount).observe(document.body,{childList:true,subtree:true});mount();
+})();
+
+window.renderOctoberDock=function(){const root='#/magazine/'+encodeURIComponent('十月少年文学')+'?claimed=1';const i=n=>`<i class="iconfont icon-${n}" aria-hidden="true"></i>`;return `<nav class="oc-dock" aria-label="本刊导航"><div><a class="oc-button" href="${root}">${i('Home')}首页</a><button class="oc-button" data-rd-action="archive">${i('History')}全部杂志</button><a class="oc-button" href="${octoberCommunityRoute('lecturers')}">${i('Emoji')}领读人</a><a class="oc-button" href="${octoberCommunityRoute('activities')}">${i('Home')}活动</a></div><a class="oc-button oc-dark" href="https://readclub.qikan.cn/shiyue#/membership" target="_blank" rel="noopener">${i('Group')}会员</a></nav>`;};
+window.renderOctoberClaimedIssue=function(m,issue){
+ const e=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+ let html=renderOrdinaryPeriodical(m,issue).replace('pe-figma-detail"','pe-figma-detail oc-issue-detail"');
+ html=html.replace('<div class="pe-identity-top">',`<div class="pe-identity-top"><div class="pe-header-cover"><img src="${e(issue.src||m.src)}" width="210" height="285" alt="${e(m.title+' '+issue.label)}封面"></div>`);
+ const year=issue.label.match(/\d{4}/)?.[0]||'2026',number=issue.label.match(/年(\d+)期/)?.[1]||'09';
+ const trial=`https://www.qikan.com.cn/original/03A8879F-287C-4465-B775-F7717C20A2E3/${year}/${number.padStart(2,'0')}.html`;
+ html=html.replace(/<div class="pe-purchase">[\s\S]*?(?=<\/aside>)/,`<div class="pe-purchase"><div class="pe-sidebar-actions"><a class="pe-sidebar-trial" href="${trial}" target="_blank" rel="noopener">原貌版</a></div></div>`);
+ html=html.replace(/<img class="pe-directory-cover"[^>]*>/,'');
+ html=html.replace(/<div class="pe-purchase-dock[\s\S]*?(?=<footer)/,renderOctoberDock()+'\n');
+ html=html.replace(/(#\/magazine\/[^"?]+)\?issue=(\d+)/g,'$1?issue=$2&club=1');return html;
+};
+document.addEventListener('change',event=>{if(!event.target.matches('.oc-membership-choice input'))return;event.target.closest('.oc-membership-choices').querySelectorAll('input').forEach(input=>input.nextElementSibling.className='iconfont icon-'+(input.checked?'Check':'UnSelect'));});
