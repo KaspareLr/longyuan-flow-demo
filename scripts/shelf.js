@@ -402,7 +402,7 @@ const flowShelfData = [
     // Position is animated by requestAnimationFrame; CSS interpolation would sweep wrapped leaves through the shelf.
     button.style.transition='none';
     button.setAttribute('aria-label',item.title+'，点击打开杂志');
-    const image=document.createElement('img');image.src=item.src;image.alt=item.title+'封面';image.draggable=false;
+    const image=document.createElement('img');image.decoding='async';image.loading=Math.abs(wrap(index-initialIndex))<=2?'eager':'lazy';image.fetchPriority=index===initialIndex?'high':'low';image.src=item.src;image.alt=item.title+'封面';image.draggable=false;
     button.style.setProperty('--cover-art',`url("${new URL(item.src,document.baseURI).href}")`);image.className='shelf-front';const back=image.cloneNode(true);back.className='shelf-back';back.alt='';back.setAttribute('aria-hidden','true');const frontShadow=document.createElement('span');frontShadow.className='shelf-contact-shadow shelf-contact-front';frontShadow.setAttribute('aria-hidden','true');const backShadow=frontShadow.cloneNode();backShadow.className='shelf-contact-shadow shelf-contact-back';button.append(frontShadow,backShadow,image,back);stage.append(button);return button;
   });
   let hovered=null,waveFrame=0,waveTime=0;
