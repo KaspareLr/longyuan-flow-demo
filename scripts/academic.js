@@ -200,7 +200,7 @@
         <div>
           <h3>${escape(item.title)}</h3>
           <p>${escape(item.copy)}</p>
-          <a class="btn-text" href="#/magazine/${encodeURIComponent(item.title)}">进入期刊 ${icon('Arrow_Forward-3')}</a>
+          <a class="btn-text" href="#/magazine/${encodeURIComponent(item.title)}">进入期刊 ${icon('Arrow_Forward-2')}</a>
         </div>
       </article>`).join('');
   }

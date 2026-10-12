@@ -48,8 +48,8 @@ const editorialBooks = [
   15:{title:'数字时代，我们如何保持深度阅读？',kind:'一个主题 / 多种视角',copy:'沿着问题、案例与原文，慢慢展开一条阅读线索。',url:'#/topic/reading'},
   30:{title:'科学的历程',kind:'一本书 / 深入探索',copy:'放慢一点，沿着科学思想的演进读下去。',url:'#/book/8'}
  };
- function chooseTime(value){const p=picks[value];all('[data-reading-time]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.readingTime===String(value))));one('#reading-pick').innerHTML=`<a class="reading-pick" href="${p.url}"><span class="eyeline">${p.kind}</span><h4>${p.title}</h4><p>${p.copy}</p><span class="story-link">开始这段阅读 ${icon('Arrow_Forward-3')}</span></a>`}
- function showReturn(){let value;try{value=JSON.parse(localStorage.getItem('longyuan-last-reading'))}catch{}const valid=value&&typeof value.title==='string'&&/^#\/(reader|book|topic)\//.test(value.url);one('#reading-return').innerHTML=valid?`<a href="${escape(value.url)}"><span>继续阅读 · ${escape(value.title)}</span>${icon('Arrow_Forward-3')}</a>`:'每次翻开，都可以是一个新的开始。'}
+ function chooseTime(value){const p=picks[value];all('[data-reading-time]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.readingTime===String(value))));one('#reading-pick').innerHTML=`<a class="reading-pick" href="${p.url}"><span class="eyeline">${p.kind}</span><h4>${p.title}</h4><p>${p.copy}</p><span class="story-link">开始这段阅读 ${icon('Arrow_Forward-2')}</span></a>`}
+ function showReturn(){let value;try{value=JSON.parse(localStorage.getItem('longyuan-last-reading'))}catch{}const valid=value&&typeof value.title==='string'&&/^#\/(reader|book|topic)\//.test(value.url);one('#reading-return').innerHTML=valid?`<a href="${escape(value.url)}"><span>继续阅读 · ${escape(value.title)}</span>${icon('Arrow_Forward-2')}</a>`:'每次翻开，都可以是一个新的开始。'}
  chooseTime(5);showReturn();
  document.addEventListener('click',event=>{
   const target=event.target.closest('[data-reading-time],[data-scroll-to]');if(!target)return;
@@ -61,7 +61,7 @@ const editorialBooks = [
  const layout=document.createElement('div');layout.className='catalog-layout';
  const main=document.createElement('div');main.className='catalog-main';
  const feature=document.createElement('a');feature.className='catalog-feature';feature.href='#/magazine/读者';
- feature.innerHTML=`<div><span class="eyeline">编辑主推 / 人文阅读</span><h2>读一些文字，<br>也读懂一些生活。</h2><p>从《读者》出发，在故事与随笔之间，发现日常生活里的细微光亮。</p><span class="story-link">走进这本刊 ${icon('Arrow_Forward-3')}</span></div><img src="assets/longyuan-home/duzh202220-z.jpg" alt="读者封面">`;
+ feature.innerHTML=`<div><span class="eyeline">编辑主推 / 人文阅读</span><h2>读一些文字，<br>也读懂一些生活。</h2><p>从《读者》出发，在故事与随笔之间，发现日常生活里的细微光亮。</p><span class="story-link">走进这本刊 ${icon('Arrow_Forward-2')}</span></div><img src="assets/longyuan-home/duzh202220-z.jpg" alt="读者封面">`;
  main.append(feature,...sections.slice(1));layout.append(main,sections[0]);catalog.append(layout);
  let category='all';
  function filterCatalog(){const q=one('#magazine-keyword').value.trim().toLowerCase();let total=0;all('[data-mag-filter]').forEach(card=>{const visible=(category==='all'||card.dataset.category===category)&&card.textContent.toLowerCase().includes(q);card.hidden=!visible;card.style.display='';if(visible)total++});one('#catalog-count').textContent=`${total} 本可探索的期刊`;one('#catalog-empty').hidden=total>0;all('[data-filter-category]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.filterCategory===category)))}
