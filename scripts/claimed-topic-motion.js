@@ -16,6 +16,7 @@
    stage.style.height=(h+Math.max(0,-current.top*p))+'px';
    Object.assign(feature.style,{left:x+'px',top:y+'px',width:w+'px',height:h+'px',borderRadius:(40*(1-p))+'px'});
    feature.style.setProperty('--oc-topic-progress',p);
+   cards.style.maxHeight=(cards.scrollHeight*clamp((p-.35)/.65,0,1))+'px';
    cards.style.opacity=String(clamp((p-.65)/.35,0,1));cards.style.transform=`translateY(${(1-p)*16}px)`;
   }
   function animate(to){target=to;if(frame)return;last=performance.now();function tick(now){if(!feature.isConnected){cleanup();return;}
@@ -27,7 +28,7 @@
   function open(){if(active||spent||reduced.matches)return;origin=stage.getBoundingClientRect();active=true;intent=0;root.classList.add('has-topic-focus');feature.classList.add('oc-topic-fixed');cards.inert=false;render();animate(1);}
   function restore(){active=false;spent=true;feature.classList.remove('oc-topic-fixed');root.classList.remove('has-topic-focus');feature.removeAttribute('style');
    // Preserve the original inline background image; only motion geometry is transient.
-   feature.style.backgroundImage=background;stage.style.removeProperty('height');cards.style.opacity='';cards.style.transform='';cards.inert=!reduced.matches;}
+   feature.style.backgroundImage=background;stage.style.removeProperty('height');cards.style.opacity='';cards.style.transform='';cards.style.maxHeight='';cards.inert=!reduced.matches;}
   function onScroll(){
    const y=scrollY,previous=lastScroll,down=y>previous;lastScroll=y;if(active)return;
    const rect=stage.getBoundingClientRect();

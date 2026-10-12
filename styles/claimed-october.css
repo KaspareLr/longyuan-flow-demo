@@ -184,3 +184,5 @@
 .oc-publication.has-topic-focus{overflow-anchor:none}
 .rd-periodical.oc-publication .oc-feature .oc-feature-tag:is(:hover,:focus-visible),.rd-periodical.oc-publication .oc-feature .oc-topic-article:is(:hover,:focus-visible){color:#fff}
 .oc-feature-tag:focus-visible{outline:2px solid #fff;outline-offset:4px}
+.oc-feature.oc-topic-fixed{row-gap:calc(40px * var(--oc-topic-progress,0))}
+.oc-feature.oc-topic-fixed .oc-topic-articles{overflow-y:hidden}
