@@ -189,3 +189,41 @@
 /* Daily cover foreground outranks the inherited periodical gray hover rule. */
 .rd-periodical.oc-publication .oc-daily .oc-daily-track>a:is(:hover,:focus-visible,:active){color:#fff;text-shadow:0 1px 4px #0008}
 .rd-periodical.oc-publication .oc-daily .oc-daily-track>a>:is(strong,span){color:#fff}
+/* Membership editorial split, matching the original structure on a dark surface. */
+.oc-member-split{gap:28px}
+.oc-member-layout{display:grid;grid-template-columns:1.08fr 1fr;gap:0}
+.oc-member-story{padding-right:44px;border-right:1px solid #ffffff26;display:flex;flex-direction:column;gap:24px}
+.oc-member-story .oc-member-intro{margin:0}
+.oc-member-rule{display:flex;align-items:center;gap:20px;color:#ffffff80;font-size:12px;line-height:20px}
+.oc-member-rule:after{content:'';height:1px;background:#ffffff26;flex:1}
+.oc-member-rights{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:20px}
+.oc-member-rights li{display:flex;gap:16px}.oc-member-rights li>span{font-size:12px;line-height:24px;color:#ffffff80}.oc-member-rights p{margin:0;color:#fff;font-size:16px;line-height:24px}
+.oc-member-footnote{margin:auto 0 0;padding-top:24px;color:#ffffff80;font-size:12px;line-height:20px}
+.oc-member-purchase{padding-left:36px;min-width:0}.oc-member-purchase h3{font-size:24px;line-height:32px;margin:8px 0}.oc-member-purchase>p{font-size:14px;line-height:24px;color:#ffffffb3;margin:0}
+.oc-member-periods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:24px 0}
+.oc-member-periods button{display:flex;flex-direction:column;gap:8px;text-align:left;background:transparent;color:#fff;border:1px solid #ffffff26;padding:14px 12px;border-radius:12px;transition:background 160ms ease,border-color 160ms ease;cursor:pointer}
+.oc-member-periods button>span{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:14px;line-height:24px}.oc-member-periods b{font-size:18px;line-height:28px;font-weight:600}.oc-member-periods small{font-size:12px;line-height:16px;color:#ffffff80}
+.oc-member-periods button[aria-pressed=true]{background:#ffffff12;border-color:#fff}
+.rd-periodical.oc-publication .oc-member-periods button:is(:hover,:focus-visible){color:#fff;background:#ffffff18;border-color:#ffffff80}
+.oc-member-price-summary{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:12px}.oc-member-price-summary>span{font-size:14px;line-height:24px;color:#ffffffb3}.oc-member-price-summary strong{font-size:32px;line-height:40px;font-weight:600}
+.oc-member-purchase .oc-member-duration{font-size:12px;line-height:20px;color:#ffffff80;margin-bottom:20px}
+.oc-member-buy{width:100%;background:#fff;color:#131921}.oc-member-support{display:block;margin-top:12px;font-size:12px;line-height:20px;color:#ffffff80}
+.oc-member-redeem{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;border-top:1px solid #ffffff26;padding-top:24px}
+.oc-member-redeem h3{font-size:16px;line-height:28px;margin:0}.oc-member-redeem>div>p{font-size:12px;line-height:20px;color:#ffffff80;margin:4px 0 0}
+.oc-member-redeem .oc-button{background:#ffffff08;border-color:#ffffff40;color:#fff}
+.rd-periodical.oc-publication .oc-member-redeem .oc-button:is(:hover,:focus-visible){background:#ffffff18;color:#fff;border-color:#ffffff80}
+.oc-redeem-form{display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:10px;max-width:100%}
+.oc-redeem-form input{width:220px;max-width:100%;height:48px;border:1px solid #ffffff40;border-radius:12px;background:#ffffff08;padding:0 12px;color:#fff;font:400 14px/24px ui-monospace,monospace;letter-spacing:.08em}
+.oc-redeem-form input::placeholder{color:#ffffff80}.oc-redeem-form input:focus{outline:2px solid #fff;outline-offset:2px}
+.oc-redeem-submit:disabled{opacity:.4;cursor:not-allowed}
+.oc-redeem-status{flex-basis:100%;margin:0;color:#ffffffb3;font-size:12px;line-height:24px}.oc-redeem-status a{color:#fff;text-decoration:underline;text-underline-offset:4px;display:inline-flex;align-items:center;gap:4px}
+.rd-periodical.oc-publication .oc-redeem-status a:is(:hover,:focus-visible){color:#fff}
+@media(max-width:900px){.oc-member-layout{grid-template-columns:1fr}.oc-member-story{padding:0 0 28px;border-right:0;border-bottom:1px solid #ffffff26}.oc-member-purchase{padding:28px 0 0}.oc-member-periods{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:560px){.oc-redeem-form{justify-content:flex-start}.oc-member-periods button{padding:12px 8px}.oc-member-periods button>span{gap:4px}}
+@media(prefers-reduced-motion:reduce){.oc-member-periods button{transition:none}}
+
+.oc-member-split .oc-member-buy{background:#fff;color:#131921;border-color:#fff}
+.rd-periodical.oc-publication .oc-member-purchase .oc-member-buy:is(:hover,:focus-visible){background:#e9edf2;color:#131921;border-color:#e9edf2}
+.oc-member-trial-banner{display:flex;align-items:center;justify-content:space-between;gap:20px;padding-bottom:20px;border-bottom:1px solid #ffffff26;font-size:12px;line-height:20px;color:#ffffffb3}
+.oc-member-trial-banner a{color:#fff;text-decoration:underline;text-underline-offset:4px}
+.rd-periodical.oc-publication .oc-member-trial-banner a:is(:hover,:focus-visible){color:#fff}
