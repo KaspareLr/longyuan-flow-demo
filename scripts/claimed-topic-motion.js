@@ -52,7 +52,7 @@
    if(frame){if(delta<0){intent+=delta;if(intent< -120){animate(0);return false;}}return true;}
    if(performance.now()-settledAt<160)return true;
    intent+=delta;
-   if(intent>140||intent< -120){animate(0);return false;}
+   if(intent>Math.max(480,innerHeight*.75)||intent< -120){animate(0);return false;}
    return true;
   }
   function wheel(event){if(event.ctrlKey||event.target.closest('.topbar,.pe-chat'))return;if(consume(event.deltaY*(event.deltaMode===1?16:event.deltaMode===2?innerHeight:1)))event.preventDefault();}
