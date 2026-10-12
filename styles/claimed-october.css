@@ -164,3 +164,21 @@
 .oc-activities-empty{grid-column:1/-1}
 @media(max-width:900px){.oc-activity-list{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.oc-activity-list{grid-template-columns:1fr}}
+
+/* Returning topic follows native scroll, with a reserved layout footprint. */
+.oc-feature-stage{overflow-anchor:none}
+.oc-feature-stage>.oc-feature{row-gap:calc(10px + 30px * var(--oc-topic-progress,0))}
+.oc-feature.oc-topic-fixed h2{font-size:calc(24px + 16px * var(--oc-topic-progress,0));line-height:calc(32px + 16px * var(--oc-topic-progress,0))}
+.oc-feature.oc-topic-fixed>div:first-child>p{font-size:calc(16px + 4px * var(--oc-topic-progress,0));line-height:calc(24px + 8px * var(--oc-topic-progress,0))}
+.oc-feature .oc-feature-tag{display:inline-flex;font-size:12px;line-height:16px;color:#fff;text-decoration:none;transition:background-color 160ms ease}
+.oc-publication .oc-feature-tag:is(:hover,:focus-visible){color:#fff;background:#000c}
+.oc-feature>.oc-button{padding-left:24px;padding-right:18px}
+.oc-topic-meta{display:flex;flex-direction:column;gap:0;margin-top:4px}
+.oc-topic-meta strong,.oc-topic-meta small{display:block;font-size:14px;line-height:20px;color:#606266}
+.oc-topic-meta strong{font-weight:700}.oc-topic-meta small{font-weight:400}
+.oc-feature .oc-topic-article{transition:background-color 160ms ease,color 160ms ease}
+.oc-publication .oc-feature .oc-topic-article:is(:hover,:focus-visible){background:#131921;color:#fff}
+.oc-publication .oc-feature .oc-topic-article:is(:hover,:focus-visible) :is(h3,p,strong,small,span){color:#fff}
+@media(max-width:600px){.oc-feature.oc-topic-fixed h2{font-size:calc(24px + 8px * var(--oc-topic-progress,0));line-height:calc(32px + 8px * var(--oc-topic-progress,0))}}
+@media(prefers-reduced-motion:reduce){.oc-feature .oc-topic-article,.oc-feature-tag{transition:none}}
+.oc-publication.has-topic-focus{overflow-anchor:none}

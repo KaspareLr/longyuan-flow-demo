@@ -8,9 +8,14 @@
   const cards=feature.querySelector('.oc-topic-articles'),reduced=matchMedia('(prefers-reduced-motion: reduce)');
   let progress=0,velocity=0,target=0,frame=0,last=0,active=false,spent=false,intent=0,settledAt=0,lastScroll=scrollY,origin=null,touchY=null;
   const clamp=(x,min,max)=>Math.max(min,Math.min(max,x));
-  function render(){const p=clamp(progress,0,1),endW=document.documentElement.clientWidth,endH=innerHeight;
-   const x=origin.left*(1-p),y=origin.top*(1-p),w=origin.width+(endW-origin.width)*p,h=origin.height+(endH-origin.height)*p;
+  function render(){
+   const p=clamp(progress,0,1),endW=document.documentElement.clientWidth,endH=innerHeight;
+   const current=stage.getBoundingClientRect();
+   const x=current.left*(1-p),y=current.top*(1-p),w=origin.width+(endW-origin.width)*p,h=origin.height+(endH-origin.height)*p;
+   // Reserve the moving surface's full footprint, including while it scrolls upward.
+   stage.style.height=(h+Math.max(0,-current.top*p))+'px';
    Object.assign(feature.style,{left:x+'px',top:y+'px',width:w+'px',height:h+'px',borderRadius:(40*(1-p))+'px'});
+   feature.style.setProperty('--oc-topic-progress',p);
    cards.style.opacity=String(clamp((p-.65)/.35,0,1));cards.style.transform=`translateY(${(1-p)*16}px)`;
   }
   function animate(to){target=to;if(frame)return;last=performance.now();function tick(now){if(!feature.isConnected){cleanup();return;}
@@ -22,7 +27,7 @@
   function open(){if(active||spent||reduced.matches)return;origin=stage.getBoundingClientRect();active=true;intent=0;root.classList.add('has-topic-focus');feature.classList.add('oc-topic-fixed');cards.inert=false;render();animate(1);}
   function restore(){active=false;spent=true;feature.classList.remove('oc-topic-fixed');root.classList.remove('has-topic-focus');feature.removeAttribute('style');
    // Preserve the original inline background image; only motion geometry is transient.
-   feature.style.backgroundImage=background;cards.style.opacity='';cards.style.transform='';cards.inert=!reduced.matches;}
+   feature.style.backgroundImage=background;stage.style.removeProperty('height');cards.style.opacity='';cards.style.transform='';cards.inert=!reduced.matches;}
   function onScroll(){
    const y=scrollY,previous=lastScroll,down=y>previous;lastScroll=y;if(active)return;
    const rect=stage.getBoundingClientRect();
@@ -39,8 +44,16 @@
     requestAnimationFrame(()=>{if(!feature.isConnected||active||spent)return;const r=stage.getBoundingClientRect();if(r.top>=top-1&&r.bottom<=bottom+1)open();});
    }
   }
-  function consume(delta){if(!active)return false;if(target===0)return true;if(frame){if(delta<0){intent+=delta;if(intent< -180)animate(0);}return true;}if(performance.now()-settledAt<450)return true;
-   intent+=delta;if(intent>Math.max(280,innerHeight*.55)||intent< -180)animate(0);return true;}
+  function consume(delta){
+   if(!active)return false;
+   // The native page scroll takes over as soon as the surface starts returning.
+   if(target===0)return false;
+   if(frame){if(delta<0){intent+=delta;if(intent< -120){animate(0);return false;}}return true;}
+   if(performance.now()-settledAt<160)return true;
+   intent+=delta;
+   if(intent>140||intent< -120){animate(0);return false;}
+   return true;
+  }
   function wheel(event){if(event.ctrlKey||event.target.closest('.topbar,.pe-chat'))return;if(consume(event.deltaY*(event.deltaMode===1?16:event.deltaMode===2?innerHeight:1)))event.preventDefault();}
   function touchStart(event){touchY=event.touches[0]?.clientY;}
   function touchMove(event){const y=event.touches[0]?.clientY;if(y===undefined||touchY===null)return;if(consume(touchY-y))event.preventDefault();touchY=y;}
