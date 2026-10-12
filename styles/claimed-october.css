@@ -182,3 +182,5 @@
 @media(max-width:600px){.oc-feature.oc-topic-fixed h2{font-size:calc(24px + 8px * var(--oc-topic-progress,0));line-height:calc(32px + 8px * var(--oc-topic-progress,0))}}
 @media(prefers-reduced-motion:reduce){.oc-feature .oc-topic-article,.oc-feature-tag{transition:none}}
 .oc-publication.has-topic-focus{overflow-anchor:none}
+.rd-periodical.oc-publication .oc-feature .oc-feature-tag:is(:hover,:focus-visible),.rd-periodical.oc-publication .oc-feature .oc-topic-article:is(:hover,:focus-visible){color:#fff}
+.oc-feature-tag:focus-visible{outline:2px solid #fff;outline-offset:4px}
