@@ -186,3 +186,6 @@
 .oc-feature-tag:focus-visible{outline:2px solid #fff;outline-offset:4px}
 .oc-feature.oc-topic-fixed{row-gap:calc(40px * var(--oc-topic-progress,0))}
 .oc-feature.oc-topic-fixed .oc-topic-articles{overflow-y:hidden}
+/* Daily cover foreground outranks the inherited periodical gray hover rule. */
+.rd-periodical.oc-publication .oc-daily .oc-daily-track>a:is(:hover,:focus-visible,:active){color:#fff;text-shadow:0 1px 4px #0008}
+.rd-periodical.oc-publication .oc-daily .oc-daily-track>a>:is(strong,span){color:#fff}
