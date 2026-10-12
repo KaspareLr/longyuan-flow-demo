@@ -155,7 +155,7 @@
 .oc-activity-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px;align-items:stretch}
 .oc-activity-list>[data-oc-activity-status]{min-width:0;height:100%}
 .oc-publication .oc-activity-card{flex-direction:column;align-items:stretch;gap:20px;height:100%;padding:20px;min-width:0}
-.oc-publication .oc-activity-card>img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;flex:none}
+.oc-publication .oc-activity-card>img{display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:contain;flex:none}
 .oc-activity-card>div{display:flex;flex-direction:column;align-items:flex-start;min-width:0}
 .oc-activity-card h2{font-size:20px;line-height:28px}
 .oc-activity-card p{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;margin:0 0 16px}
