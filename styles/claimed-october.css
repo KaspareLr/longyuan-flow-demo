@@ -145,3 +145,8 @@
 .oc-topic-article:focus-visible{outline:2px solid #fff;outline-offset:4px}
 @media(max-width:900px){.oc-feature-stage{height:480px}.oc-feature.oc-topic-fixed{padding:24px}.oc-feature.oc-topic-fixed .oc-topic-articles{display:flex;overflow:auto}.oc-topic-article{width:240px;flex:none}.oc-feature-stage>.oc-feature{flex-direction:row;align-items:flex-end}.oc-feature.oc-topic-fixed>div:first-child{min-width:60%}}
 @media(prefers-reduced-motion:reduce){.oc-feature-stage{height:auto;min-height:600px}.oc-feature-stage>.oc-feature{height:auto;min-height:600px}.oc-feature .oc-topic-articles{display:grid}}
+
+/* Keep the teaser fully viewable between fixed header and dock before expanding. */
+.oc-feature-stage{height:min(600px,calc(100dvh - 188px))}
+@media(max-width:900px){.oc-feature-stage{height:min(480px,calc(100dvh - 236px))}}
+@media(prefers-reduced-motion:reduce){.oc-feature-stage{height:auto}}

@@ -23,7 +23,22 @@
   function restore(){active=false;spent=true;feature.classList.remove('oc-topic-fixed');root.classList.remove('has-topic-focus');feature.removeAttribute('style');
    // Preserve the original inline background image; only motion geometry is transient.
    feature.style.backgroundImage=background;cards.style.opacity='';cards.style.transform='';cards.inert=!reduced.matches;}
-  function onScroll(){const y=scrollY,down=y>lastScroll;lastScroll=y;if(!active){const rect=stage.getBoundingClientRect();if(spent&&rect.top>innerHeight*.72)spent=false;if(down&&!spent&&rect.top<innerHeight*.65&&rect.bottom>120)open();}}
+  function onScroll(){
+   const y=scrollY,previous=lastScroll,down=y>previous;lastScroll=y;if(active)return;
+   const rect=stage.getBoundingClientRect();
+   if(spent&&rect.top>innerHeight*.72)spent=false;
+   const header=document.querySelector('body > .topbar'),dock=root.querySelector('.oc-dock');
+   const top=Math.max(0,header?.getBoundingClientRect().bottom||0)+10;
+   const bottom=Math.min(innerHeight,dock?.getBoundingClientRect().top||innerHeight)-10;
+   // Expand only after both edges are visible, clear of fixed navigation.
+   const fullyVisible=rect.top>=top-1&&rect.bottom<=bottom+1;
+   if(down&&!spent&&fullyVisible)open();
+   else if(down&&!spent&&rect.height<=bottom-top&&rect.bottom<=bottom&&rect.bottom+(y-previous)>bottom&&rect.top<top&&rect.bottom>top){
+    // A coarse wheel step may jump over the visibility interval; align before opening.
+    window.scrollTo({top:y+rect.top-top,behavior:'instant'});
+    requestAnimationFrame(()=>{if(!feature.isConnected||active||spent)return;const r=stage.getBoundingClientRect();if(r.top>=top-1&&r.bottom<=bottom+1)open();});
+   }
+  }
   function consume(delta){if(!active)return false;if(target===0)return true;if(frame){if(delta<0){intent+=delta;if(intent< -180)animate(0);}return true;}if(performance.now()-settledAt<450)return true;
    intent+=delta;if(intent>Math.max(280,innerHeight*.55)||intent< -180)animate(0);return true;}
   function wheel(event){if(event.ctrlKey||event.target.closest('.topbar,.pe-chat'))return;if(consume(event.deltaY*(event.deltaMode===1?16:event.deltaMode===2?innerHeight:1)))event.preventDefault();}
