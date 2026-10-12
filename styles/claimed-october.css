@@ -244,19 +244,29 @@
 
 .oc-podcast{transition:background-color 180ms ease}
 @media(prefers-reduced-motion:reduce){.oc-podcast{transition:none}}
-/* Lecturer first screen: identity | portrait | reading message and biography. */
+/* Portrait-led lecturer hero: three editorial columns, then reading opinions. */
 .oc-publication.oc-lecturer-profile{margin-top:0;padding-top:10px}
-.oc-profile-first{display:grid;grid-template-columns:.8fr 1.05fr 1fr;gap:40px;align-items:center;min-height:calc(100dvh - 98px);padding:30px 0 110px;box-sizing:border-box}
-.oc-profile-identity{display:flex;flex-direction:column;align-items:flex-start;gap:24px;min-width:0}
-.oc-profile-identity h1{font:700 56px/72px Figtree,"PingFang SC",sans-serif;color:#131921;letter-spacing:-.02em;margin:0}
-.oc-profile-identity>p{font-size:14px;line-height:24px;color:#606266;margin:0}
-.oc-profile-identity>.oc-button{padding:12px 24px 12px 18px}
-.oc-profile-stats{display:flex;gap:32px;padding-top:16px;width:100%;border-top:1px solid #e4e7ed}
+.oc-profile-first{display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:clamp(24px,3vw,56px);align-items:center;min-height:calc(100dvh - 98px);padding:40px 0 100px;box-sizing:border-box}
+.oc-profile-identity{display:flex;flex-direction:column;align-items:flex-start;gap:28px;min-width:0}
+.oc-profile-greeting{font-size:22px;line-height:32px;color:#606266}
+.oc-profile-identity h1{font:700 clamp(48px,4.8vw,80px)/1.15 Figtree,"PingFang SC",sans-serif;color:#131921;letter-spacing:-.04em;margin:0}
+.oc-profile-identity h1>span{display:block;color:#606266;margin-top:8px}
+.oc-profile-identity>p{font-size:16px;line-height:28px;color:#606266;margin:0;max-width:28em}
+.oc-profile-identity>.oc-button{border-radius:999px;padding:8px 8px 8px 24px;gap:18px;margin-top:8px}
+.oc-profile-follow-icon{display:grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#ffffff20}
+.oc-profile-follow-icon .iconfont{font-size:24px;line-height:24px}
+.oc-profile-stats{display:flex;gap:32px;padding-top:8px;width:100%}
 .oc-profile-stats>div{display:flex;flex-direction:column;gap:4px}.oc-profile-stats strong{font-size:28px;line-height:36px;font-weight:600;color:#131921}.oc-profile-stats span,.oc-profile-column{font-size:12px;line-height:20px;color:#909399}
-.oc-profile-portrait{min-width:0}.oc-profile-portrait>img{display:block;width:100%;height:min(600px,calc(100dvh - 220px));object-fit:cover;object-position:50% 35%;border-radius:24px;box-shadow:0 12px 32px #13192112}
-.oc-profile-introduction{display:flex;flex-direction:column;gap:40px;min-width:0}
-.oc-profile-introduction section{display:flex;flex-direction:column;gap:16px}.oc-profile-introduction h2{font:600 24px/36px Figtree,"PingFang SC",sans-serif;color:#131921;margin:0}.oc-profile-introduction p{font-size:14px;line-height:24px;color:#606266;margin:0;white-space:pre-line}
+.oc-profile-portrait{min-width:0;margin:0;padding:18px 18px 0;border-radius:32px;background:#fff;box-shadow:0 20px 50px #1319210d}
+.oc-profile-portrait>img{display:block;width:100%;height:clamp(340px,48dvh,600px);object-fit:cover;object-position:50% 32%;border-radius:22px;background:#e9ebef}
+.oc-profile-portrait figcaption{display:flex;align-items:center;justify-content:center;gap:10px;min-height:64px;padding:12px 4px;box-sizing:border-box;font-size:14px;line-height:24px;color:#131921;text-align:center}
+.oc-profile-portrait figcaption>span{width:6px;height:6px;flex:none;border-radius:50%;background:#131921}
+.oc-profile-introduction{display:flex;flex-direction:column;gap:36px;min-width:0;padding-top:100px}
+.oc-profile-introduction section{display:flex;flex-direction:column;gap:18px}
+.oc-profile-introduction section:first-child{border-left:1px solid #d7d9dc;padding-left:18px}
+.oc-profile-introduction h2{font:600 28px/40px Figtree,"PingFang SC",sans-serif;color:#131921;margin:0;letter-spacing:-.02em}
+.oc-profile-introduction p{font-size:14px;line-height:26px;color:#606266;margin:0;white-space:pre-line}
 .oc-profile-opinions{scroll-margin-top:110px}
-@media(max-width:1200px){.oc-profile-first{gap:24px;grid-template-columns:.8fr 1fr 1fr}.oc-profile-identity h1{font-size:44px;line-height:60px}.oc-profile-introduction h2{font-size:20px;line-height:32px}}
-@media(max-width:900px){.oc-profile-first{min-height:calc(100dvh - 146px);grid-template-columns:1fr 1fr;gap:32px;padding-bottom:80px}.oc-profile-introduction{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:32px}.oc-profile-portrait>img{height:400px}}
-@media(max-width:600px){.oc-profile-first{grid-template-columns:1fr;padding-top:24px;gap:32px}.oc-profile-introduction{grid-column:auto;display:flex}.oc-profile-portrait>img{height:auto;aspect-ratio:1}.oc-profile-identity h1{font-size:44px;line-height:60px}}
+@media(max-width:1200px){.oc-profile-first{gap:24px}.oc-profile-identity h1{font-size:48px}.oc-profile-introduction{padding-top:64px}.oc-profile-introduction h2{font-size:22px;line-height:34px}.oc-profile-portrait{padding:12px 12px 0}}
+@media(max-width:900px){.oc-profile-first{min-height:calc(100dvh - 146px);grid-template-columns:1fr 1fr;gap:32px;padding-bottom:80px}.oc-profile-introduction{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:32px;padding-top:0}.oc-profile-portrait>img{height:400px}}
+@media(max-width:600px){.oc-profile-first{grid-template-columns:1fr;padding-top:24px;gap:40px}.oc-profile-introduction{grid-column:auto;display:flex}.oc-profile-portrait>img{height:auto;aspect-ratio:1}.oc-profile-identity h1{font-size:56px}.oc-profile-identity{gap:20px}}
