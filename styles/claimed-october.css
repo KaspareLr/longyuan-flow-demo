@@ -314,3 +314,14 @@
 @media(prefers-reduced-motion:no-preference){.oc-opinion-slide{transition:opacity 300ms ease,visibility 300ms}.oc-opinion-dots button{transition:width 200ms ease,background 200ms ease}}
 @media(max-width:900px){.oc-opinion-slide>p{font-size:36px;line-height:48px}}
 @media(max-width:600px){.oc-opinion-slide>p{font-size:28px;line-height:40px}}
+
+/* Related events: full cover with readable detail overlay on interaction. */
+.oc-publication .oc-related-activities .oc-activity-card{position:relative;display:block;height:auto;padding:0;gap:0;overflow:hidden;border:0;border-radius:20px;background:#131921;isolation:isolate}
+.oc-publication .oc-related-activities .oc-activity-card>img{display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:contain;border-radius:0}
+.oc-related-activities .oc-activity-card:after{content:"";position:absolute;inset:0;background:rgba(0,0,0,.76);opacity:0;pointer-events:none;z-index:1}
+.oc-publication .oc-related-activities .oc-activity-card>div{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;padding:24px 24px 48px;box-sizing:border-box;opacity:0;color:#fff;overflow:auto}
+.oc-related-activities .oc-activity-card>i{position:absolute;right:20px;bottom:20px;z-index:3;color:#fff;font-size:24px;line-height:24px;opacity:0;pointer-events:none}
+.rd-periodical.oc-publication .oc-related-activities .oc-activity-card :is(h2,p,small,.oc-status){color:#fff}.oc-related-activities .oc-activity-card h2{font-size:20px;line-height:28px;margin:12px 0}.oc-related-activities .oc-activity-card p{display:block;overflow:visible;-webkit-line-clamp:unset;font-size:14px;line-height:24px;margin:0 0 16px}.oc-related-activities .oc-activity-card small{margin-top:0}.oc-related-activities .oc-status{background:#ffffff1f;border-color:#ffffff40}
+.oc-related-activities .oc-activity-card:is(:hover,:focus-visible,:focus-within):after,.oc-related-activities .oc-activity-card:is(:hover,:focus-visible,:focus-within)>div,.oc-related-activities .oc-activity-card:is(:hover,:focus-visible,:focus-within)>i{opacity:1}
+@media(prefers-reduced-motion:no-preference){.oc-related-activities .oc-activity-card:after,.oc-related-activities .oc-activity-card>div,.oc-related-activities .oc-activity-card>i{transition:opacity 220ms ease}}
+@media(hover:none){.oc-related-activities .oc-activity-card:after,.oc-related-activities .oc-activity-card>div,.oc-related-activities .oc-activity-card>i{opacity:1}}
