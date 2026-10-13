@@ -325,3 +325,19 @@
 .oc-related-activities .oc-activity-card:is(:hover,:focus-visible,:focus-within):after,.oc-related-activities .oc-activity-card:is(:hover,:focus-visible,:focus-within)>div,.oc-related-activities .oc-activity-card:is(:hover,:focus-visible,:focus-within)>i{opacity:1}
 @media(prefers-reduced-motion:no-preference){.oc-related-activities .oc-activity-card:after,.oc-related-activities .oc-activity-card>div,.oc-related-activities .oc-activity-card>i{transition:opacity 220ms ease}}
 @media(hover:none){.oc-related-activities .oc-activity-card:after,.oc-related-activities .oc-activity-card>div,.oc-related-activities .oc-activity-card>i{opacity:1}}
+
+/* Related activity overlays: two columns and a bounded reading hierarchy. */
+.oc-related-activities{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.oc-publication .oc-related-activities .oc-activity-card>div{padding:32px 32px 64px;justify-content:center;gap:12px;overflow:hidden}
+.oc-related-activities .oc-activity-card .oc-status{flex:none;font-size:12px;line-height:20px;margin:0}
+.oc-related-activities .oc-activity-card h2{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;flex:none;font-size:24px;line-height:32px;margin:0}
+.oc-related-activities .oc-activity-card p{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;flex:none;font-size:14px;line-height:24px;margin:0}
+.oc-related-activities .oc-activity-card small{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;flex:none;font-size:12px;line-height:20px;margin:0}
+.oc-related-activities .oc-activity-card>i{right:32px;bottom:28px}
+@media(max-width:1200px){.oc-publication .oc-related-activities .oc-activity-card>div{padding:24px 24px 52px;gap:8px}.oc-related-activities .oc-activity-card h2{font-size:20px;line-height:28px}.oc-related-activities .oc-activity-card p{-webkit-line-clamp:2}.oc-related-activities .oc-activity-card>i{right:24px;bottom:20px}}
+@media(max-width:900px){.oc-related-activities{grid-template-columns:1fr}.oc-publication .oc-related-activities .oc-activity-card>div{padding:32px 32px 64px;gap:12px}.oc-related-activities .oc-activity-card p{-webkit-line-clamp:3}}
+@media(max-width:600px){.oc-publication .oc-related-activities .oc-activity-card>div{padding:24px 24px 52px;gap:8px}.oc-related-activities .oc-activity-card p{-webkit-line-clamp:2}.oc-related-activities .oc-activity-card small{-webkit-line-clamp:1}}
+/* Keep only status, title, date and location in the hover preview. */
+.oc-related-activities .oc-activity-card{container-type:inline-size}
+.oc-related-activities .oc-activity-card p{display:none}
+@container (max-width:420px){.oc-publication .oc-related-activities .oc-activity-card>div{padding:20px 20px 44px;gap:6px}.oc-related-activities .oc-activity-card h2{font-size:18px;line-height:24px}.oc-related-activities .oc-activity-card small{font-size:12px;line-height:16px;-webkit-line-clamp:1}.oc-related-activities .oc-activity-card>i{right:20px;bottom:16px}}
