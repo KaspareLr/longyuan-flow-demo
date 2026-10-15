@@ -350,3 +350,175 @@
 .oc-more-guides .oc-more-guide strong{font-size:16px;line-height:28px;gap:6px}
 .oc-more-guides .oc-more-guide small{font-size:12px;line-height:20px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 @media(max-width:600px){.oc-more-guides .oc-more-guide{width:100%;max-width:320px}}
+/* Guided detail — Figma 137:6419. */
+.oc-guided-page .oc-main{max-width:1360px;width:calc(100% - 80px);padding-top:0}.oc-guided-figma{gap:40px;color:#131921}.oc-guided-overview{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px;padding:80px 0}.oc-guided-sidebar{display:flex;flex-direction:column;gap:30px;padding:0 60px;align-items:flex-start}.oc-guided-cover{width:280px;height:380px;object-fit:cover;border-radius:4px;box-shadow:0 8px 16px #21212112}.oc-guided-title h1{font:700 32px/40px Figtree,"PingFang SC",sans-serif;margin:0}.oc-guided-title p{font-size:16px;line-height:24px;font-weight:700;color:#606266;margin:0}.oc-guided-join{display:flex;align-items:center;gap:20px;padding:20px;background:#fff;border-radius:20px;width:100%;box-sizing:border-box}.oc-guided-progress{display:flex;flex:1;min-width:0;flex-direction:column;gap:4px}.oc-guided-progress>strong{font-size:12px;line-height:16px;color:#909399}.oc-guided-progress .oc-reading-progress{height:6px;background:#0003}.oc-guided-progress .oc-reading-participants{margin-top:6px}.oc-guided-figma .oc-button{padding:14px 32px;border-radius:100px;font:500 14px/20px Figtree,"PingFang SC",sans-serif;white-space:nowrap;box-shadow:0 2px 3px #0000001a}.oc-guided-guide{display:flex;align-items:center;gap:10px;padding:10px;color:#131921;text-decoration:none}.oc-guided-guide img{width:40px;height:40px;border-radius:50%;object-fit:cover}.oc-guided-guide strong{font-size:16px;line-height:28px}.oc-guided-guide>span{background:#d4380d;color:white;padding:2px 4px;font-size:8px;line-height:12px;font-weight:700;border-radius:4px;margin-left:-6px}.oc-guided-information{display:flex;flex-direction:column;gap:80px;padding:0 60px;min-width:0}.oc-guided-figma .oc-section{display:flex;flex-direction:column;gap:20px;margin:0}.oc-guided-figma .oc-heading{display:flex;flex-direction:column;gap:10px;align-items:flex-start}.oc-guided-figma .oc-heading>span{font:400 12px/16px Figtree,"PingFang SC",sans-serif;letter-spacing:0;color:#909399}.oc-guided-figma .oc-heading h2{font:700 32px/40px Figtree,"PingFang SC",sans-serif;margin:0}.oc-guided-figma .oc-reading-weeks{display:flex;flex-direction:column;gap:0;border-top:1px solid #c0c4cc}.oc-guided-figma .oc-reading-weeks article{display:flex;gap:20px;padding:20px 0;border:0;border-bottom:1px solid #c0c4cc;border-radius:0;background:transparent}.oc-guided-figma .oc-reading-weeks article>.oc-eyebrow{flex:0 0 56px;font:400 12px/28px Figtree,sans-serif;color:#909399;letter-spacing:0}.oc-guided-figma .oc-reading-weeks article>div{min-width:0}.oc-guided-figma .oc-reading-weeks h3{margin:0;font-size:20px;line-height:28px}.oc-guided-figma .oc-reading-weeks p{color:#606266}.oc-guided-figma .oc-reading-weeks ul{border:0;padding:0 0 0 21px;margin:10px 0 0}.oc-guided-figma .oc-reading-weeks li{font-size:14px;line-height:20px;margin:0 0 4px}.oc-guided-task{background:#fff;border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:20px}.oc-guided-task h3{font-size:20px;line-height:32px;margin:0}.oc-guided-calendar-row{display:flex;align-items:center;justify-content:space-between;gap:20px}.oc-guided-figma .oc-calendar-grid{grid-template-columns:repeat(7,28px);gap:6px;margin:0}.oc-guided-figma .oc-calendar-day{width:28px;height:28px;aspect-ratio:auto;border:0;border-radius:8px;position:relative;line-height:20px}.oc-guided-figma .oc-calendar-day.is-today{background:#131921;color:white}.oc-guided-figma .oc-calendar-day.is-checked:not(.is-today){background:transparent;color:#131921}.oc-guided-figma .oc-calendar-day.is-checked:after{content:"";position:absolute;bottom:2px;width:4px;height:4px;border-radius:50%;background:currentColor}.oc-guided-check{border:8px solid #131921;border-radius:200px;width:190px;height:190px;box-sizing:border-box;display:flex;flex:none;flex-direction:column;align-items:center;justify-content:center;gap:16px}.oc-guided-check>div{display:flex;flex-direction:column;gap:4px;text-align:center}.oc-guided-check strong{font-size:20px;line-height:24px;font-variant-numeric:tabular-nums}.oc-guided-check small{font-size:12px;line-height:16px;color:#909399}.oc-guided-question{display:flex;flex-direction:column;gap:10px;font-size:14px;line-height:20px}.oc-guided-question>p{margin:0;padding-left:14px;position:relative}.oc-guided-question>p:before{content:"";position:absolute;left:0;top:8px;width:4px;height:4px;border-radius:50%;background:#cf1322}.oc-guided-question blockquote{border-left:4px solid #131921;padding-left:10px;margin:0}.oc-guided-question blockquote p{margin:0;color:#606266}.oc-guided-task .oc-reading-feedback{margin:0}.oc-guided-task .oc-reading-feedback:empty{display:none}.oc-guided-notes-section{padding-bottom:120px}.oc-guided-figma .oc-reading-notes{grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;align-items:start}.oc-guided-figma .oc-reading-notes article{display:flex;flex-direction:column;gap:20px;padding:24px}.oc-guided-quote{width:42px;height:32px;align-self:flex-end}.oc-guided-figma .oc-reading-notes p{font-size:14px;line-height:20px;margin:0}.oc-guided-figma .oc-reading-notes footer{display:flex;flex-direction:column}.oc-guided-figma .oc-reading-notes footer strong{font-size:16px;line-height:28px}.oc-guided-figma .oc-reading-notes small{line-height:16px}.oc-guided-figma .oc-reading-note-form{gap:10px}.oc-guided-compose{display:flex;flex-direction:column;align-items:flex-end;width:100%;box-sizing:border-box;padding:10px;border:1px solid #c0c4cc;border-radius:16px;background:#fff}.oc-guided-figma .oc-reading-note-form textarea{min-height:104px;border:0;border-radius:8px;padding:10px;outline-offset:0}.oc-guided-compose:focus-within{outline:2px solid #131921;outline-offset:3px}.oc-guided-figma .oc-reading-note-form textarea:focus-visible{outline:none}.oc-guided-figma .oc-reading-note-form .oc-reading-feedback:empty{display:none}
+@media(max-width:1200px){.oc-guided-sidebar,.oc-guided-information{padding:0 24px}.oc-guided-calendar-row{gap:12px}.oc-guided-check{width:160px;height:160px}.oc-guided-check .oc-button{padding:12px 20px}.oc-guided-figma .oc-calendar-grid{grid-template-columns:repeat(7,24px);gap:4px}.oc-guided-figma .oc-calendar-day{width:24px;height:28px}}
+@media(max-width:1000px){.oc-guided-overview{grid-template-columns:1fr;gap:60px;padding:40px 0}.oc-guided-sidebar,.oc-guided-information{padding:0}.oc-guided-sidebar{max-width:540px;width:100%;margin:auto}.oc-guided-information{gap:60px}.oc-guided-figma .oc-reading-notes{grid-template-columns:repeat(2,minmax(0,1fr))}.oc-guided-calendar-row{justify-content:flex-start;gap:40px}.oc-guided-check{width:190px;height:190px}.oc-guided-figma .oc-calendar-grid{grid-template-columns:repeat(7,28px);gap:6px}.oc-guided-figma .oc-calendar-day{width:28px}}
+@media(max-width:600px){.oc-guided-page .oc-main{width:calc(100% - 40px)}.oc-guided-figma .oc-reading-notes{grid-template-columns:1fr}.oc-guided-join{gap:12px;padding:16px}.oc-guided-join .oc-button{padding:14px 20px}.oc-guided-calendar-row{flex-wrap:wrap;justify-content:center;gap:24px}.oc-guided-notes-section{padding-bottom:60px}.oc-guided-cover{max-width:100%;height:auto;aspect-ratio:14/19}.oc-guided-figma .oc-reading-weeks article{gap:12px}}
+/* Guided reading: bounded sticky overview and time-based check-in. */
+.rd-periodical.pe-figma-detail.oc-guided-page{margin-top:88px;padding-top:24px;overflow:visible}
+.oc-guided-page .oc-guided-overview{padding-top:0;align-items:start}
+.oc-guided-page .oc-guided-sidebar{position:sticky;top:100px;align-self:start}
+.oc-guided-page .oc-guided-check{position:relative;border:0;isolation:isolate;background:transparent}
+.oc-guided-check::before{content:"";position:absolute;inset:0;border-radius:50%;background:conic-gradient(#131921 var(--countdown-progress),#e4e7ed 0);z-index:-2}
+.oc-guided-check::after{content:"";position:absolute;inset:8px;border-radius:50%;background:#fff;z-index:-1}
+.oc-guided-page .oc-button:disabled{background:#e4e7ed;color:#909399;box-shadow:none;cursor:not-allowed;opacity:1}
+.oc-guided-page .oc-button:disabled:active{scale:1}
+.oc-guided-page .oc-guided-calendar-section{scroll-margin-top:100px}
+.oc-guided-page .oc-reading-notes{align-items:stretch}
+.oc-guided-page .oc-reading-notes article{height:100%;box-sizing:border-box}
+.oc-guided-page .oc-reading-notes footer{margin-top:auto}
+@media(max-width:1000px){.oc-guided-page .oc-guided-sidebar{position:static}.oc-guided-page .oc-guided-overview{padding-top:0}}
+@media(max-width:600px){.rd-periodical.pe-figma-detail.oc-guided-page{padding-top:20px;margin-top:164px}}
+#view-magazine .rd-periodical.pe-figma-detail.oc-guided-page{margin-top:0;padding-top:64px}
+.oc-guided-clock-progress{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+.oc-guided-page .oc-button:disabled:is(:hover,:focus-visible){background:#e4e7ed;color:#909399;border-color:#e4e7ed;box-shadow:none}
+@media(max-width:600px){#view-magazine .rd-periodical.pe-figma-detail.oc-guided-page{padding-top:60px}}
+.oc-guided-title>.oc-eyebrow{display:block;margin-bottom:8px}
+.oc-guided-article .oc-guided-title h1{white-space:normal;overflow-wrap:anywhere}
+/* A real CSS volume: image cover, spine, rear board and paper edges. */
+.oc-book-stage{--book-depth:40px;--book-half:20px;--book-rx:20deg;--book-ry:20deg;--book-light-x:50%;width:280px;max-width:100%;aspect-ratio:14/19;perspective:1100px;position:relative;margin:8px 0 12px;flex:none}
+.oc-book-magazine{--book-depth:20px;--book-half:10px}
+.oc-book-object{position:absolute;inset:0;transform-style:preserve-3d;transform:rotateX(var(--book-rx)) rotateY(var(--book-ry)) rotateZ(-5deg);transition:transform 420ms cubic-bezier(.2,.8,.2,1)}
+.oc-book-front,.oc-book-back{position:absolute;inset:0;border-radius:2px;backface-visibility:hidden}
+.oc-book-front{transform:translateZ(var(--book-half));overflow:hidden;background:#fff;box-shadow:inset 0 0 0 1px #0000001a}
+.oc-book-stage .oc-guided-cover{display:block;width:100%;height:100%;border-radius:2px;box-shadow:none;object-fit:cover}
+.oc-book-front::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#0000000a,transparent 4%,transparent 98%,#00000008);pointer-events:none}
+.oc-book-light{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at var(--book-light-x) 20%,#ffffff26,transparent 65%);transition:background 200ms ease}
+.oc-book-back{background:var(--book-edge,#eee9de);transform:translateZ(calc(-1 * var(--book-half))) rotateY(180deg);box-shadow:0 20px 36px #13192130,0 5px 10px #13192118}
+.oc-book-spine{position:absolute;left:0;top:0;width:var(--book-depth);height:100%;transform-origin:left center;transform:translateZ(var(--book-half)) rotateY(90deg);background:var(--book-edge,#eee9de);background:color-mix(in srgb,var(--book-edge,#eee9de) 85%,#000 15%);display:flex;align-items:center;justify-content:center;overflow:hidden;color:#f6f1e7}
+.oc-book-spine span{writing-mode:vertical-rl;white-space:nowrap;max-height:85%;overflow:hidden;font-size:10px;letter-spacing:2px}
+.oc-book-magazine .oc-book-spine span{font-size:6px;letter-spacing:1px}
+.oc-book-pages{position:absolute;left:100%;top:2px;width:calc(var(--book-depth) - 2px);height:calc(100% - 4px);transform-origin:left center;transform:translateZ(calc(var(--book-half) - 1px)) rotateY(90deg);background:repeating-linear-gradient(0deg,#eee9de 0 1px,#cfc9be 1px 2px)}
+.oc-book-bottom{position:absolute;left:1px;top:100%;width:calc(100% - 2px);height:var(--book-depth);transform-origin:center top;transform:translateZ(var(--book-half)) rotateX(-90deg);background:repeating-linear-gradient(0deg,#eee9de 0 1px,#bab6af 1px 2px);border-bottom:2px solid var(--book-edge,#eee9de);box-sizing:border-box}
+@media(prefers-reduced-motion:reduce){.oc-book-object,.oc-book-light{transition:none}}
+/* Article reading: centered title fills the space above participation controls. */
+.oc-guided-article .oc-guided-sidebar{min-height:calc(100svh - 200px);box-sizing:border-box}
+.oc-guided-article .oc-guided-title{flex:1;width:100%;display:flex;flex-direction:column;justify-content:center}
+.oc-guided-article .oc-guided-title h1{font-size:80px;line-height:96px}
+.oc-guided-article .oc-guided-join,.oc-guided-article .oc-guided-guide{flex:none}
+@media(max-width:1000px){.oc-guided-article .oc-guided-sidebar{min-height:calc(100svh - 200px)}}
+
+.oc-dock .oc-dock-back{width:48px;height:48px;padding:0;box-sizing:border-box;flex:none}.oc-dock-back .icon-Arrow_Forward-2{transform:rotate(180deg)}
+
+/* White paper at both horizontal edges of the magazine volume. */
+.oc-book-magazine .oc-book-bottom{background:#fff;border-bottom:0}
+.oc-book-magazine .oc-book-top{position:absolute;left:1px;top:0;width:calc(100% - 2px);height:var(--book-depth);transform-origin:center top;transform:translateZ(calc(-1 * var(--book-half))) rotateX(90deg);background:#fff}
+/* Broad, faint shadow behind the cover volume. */
+.oc-book-object::before{content:"";position:absolute;inset:0 -8%;border-radius:12px;background:rgba(19,25,33,.12);filter:blur(36px);transform:translate3d(0,28px,calc(-1 * var(--book-half) - 1px));pointer-events:none}
+
+/* Hardcover books: two 2px boards surrounding a smaller 36px paper block. */
+.oc-book-stage:not(.oc-book-magazine){--board-thickness:2px;--paper-inset:4px;--paper-depth:calc(var(--book-depth) - 2 * var(--board-thickness));--paper-front:calc(var(--book-half) - var(--board-thickness))}
+.oc-book-stage:not(.oc-book-magazine) .oc-book-pages{left:calc(100% - var(--paper-inset));top:var(--paper-inset);height:calc(100% - 2 * var(--paper-inset));width:var(--paper-depth);transform:translateZ(var(--paper-front)) rotateY(90deg);background:repeating-linear-gradient(0deg,#fff 0 1px,#e8e5de 1px 2px)}
+.oc-book-stage:not(.oc-book-magazine) :is(.oc-book-top,.oc-book-bottom){position:absolute;left:var(--paper-inset);width:calc(100% - 2 * var(--paper-inset));height:var(--paper-depth);transform-origin:center top;transform:translateZ(var(--paper-front)) rotateX(-90deg);background:repeating-linear-gradient(0deg,#fff 0 1px,#e8e5de 1px 2px);border:0}
+.oc-book-stage:not(.oc-book-magazine) .oc-book-top{top:var(--paper-inset)}
+.oc-book-stage:not(.oc-book-magazine) .oc-book-bottom{top:calc(100% - var(--paper-inset))}
+.oc-book-board-inner{position:absolute;inset:0;background:var(--book-edge);border-radius:2px}
+.oc-book-board-inner.oc-book-board-front{transform:translateZ(var(--paper-front))}
+.oc-book-board-inner.oc-book-board-back{transform:translateZ(calc(-1 * var(--paper-front)))}
+.oc-book-board-edge{position:absolute;background:var(--book-edge);--board-z:var(--book-half)}
+.oc-book-board-edge.oc-book-board-back{--board-z:calc(-1 * var(--paper-front))}
+.oc-book-board-edge:is(.oc-book-board-top,.oc-book-board-bottom){left:0;width:100%;height:var(--board-thickness);transform-origin:center top;transform:translateZ(var(--board-z)) rotateX(-90deg)}
+.oc-book-board-edge.oc-book-board-top{top:0}
+.oc-book-board-edge.oc-book-board-bottom{top:100%}
+.oc-book-board-edge.oc-book-board-right{left:100%;top:0;width:var(--board-thickness);height:100%;transform-origin:left center;transform:translateZ(var(--board-z)) rotateY(90deg)}
+
+/* Round-cap countdown stroke, quiet disabled check-in and month caption. */
+.oc-guided-page .oc-guided-check::before,.oc-guided-page .oc-guided-check::after{display:none}
+.oc-guided-clock-ring{position:absolute;inset:0;width:100%;height:100%;z-index:-1;overflow:visible;pointer-events:none;transform:rotate(-90deg)}
+.oc-guided-clock-ring circle{fill:none;stroke-width:10px}
+.oc-clock-track{stroke:#e4e7ed}
+.oc-clock-value{stroke:#131921;stroke-linecap:round}
+.oc-guided-page .oc-button[data-reading-check]:disabled{border-color:transparent}
+.oc-guided-page .oc-button[data-reading-check]:disabled:is(:hover,:focus-visible){border-color:transparent}
+.oc-guided-task-heading{display:flex;flex-direction:column;gap:4px}
+.oc-guided-task-month{margin:0;color:#909399;font-size:12px;line-height:20px}
+
+.oc-guided-page .oc-button[data-reading-check]{width:120px;box-sizing:border-box;padding-inline:0;flex:none}
+
+.oc-guided-figma .oc-guided-notes-heading{flex-direction:row;align-items:center;justify-content:space-between;gap:20px}
+.oc-guided-notes-heading>div{display:flex;flex-direction:column;gap:10px}
+.oc-guided-notes-heading>div>span{font:400 12px/16px Figtree,"PingFang SC",sans-serif;color:#909399}
+@media(max-width:600px){.oc-guided-figma .oc-guided-notes-heading{flex-wrap:wrap}}
+
+/* Figma 131:5808: horizontal reading cards, three per row. */
+.oc-reading-list-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;align-items:stretch}
+.oc-reading-list-card{display:flex;gap:20px;align-items:center;min-width:0;min-height:230px;box-sizing:border-box;padding:20px;background:#fff;border-radius:20px;box-shadow:0 2px 3px #0000001a;color:#131921;text-decoration:none;transition:box-shadow 180ms ease}
+.oc-reading-list-cover{display:block;flex:none;width:140px;height:190px;object-fit:cover;border-radius:4px;box-shadow:0 8px 16px #21212112}
+.oc-reading-list-content{display:flex;flex:1;min-width:0;flex-direction:column;justify-content:center;gap:20px}
+.oc-reading-list-heading{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.oc-reading-list-status{padding:2px 4px;border-radius:4px;background:#131921;color:#fff;font:700 8px/12px Figtree,"PingFang SC",sans-serif}
+.oc-reading-list-status.is-complete{background:#00000080}
+.oc-reading-list-heading>div{display:flex;flex-direction:column;gap:4px;width:100%}
+.oc-reading-list-heading h4{font:700 20px/28px Figtree,"PingFang SC",sans-serif;margin:0;overflow-wrap:anywhere;color:#131921}
+.oc-reading-list-heading p{font:400 12px/16px Figtree,"PingFang SC",sans-serif;margin:0;color:#909399}
+.oc-reading-list-progress{display:flex;flex-direction:column;gap:4px}
+.oc-reading-list-progress>strong{font:700 12px/16px Figtree,"PingFang SC",sans-serif;color:#909399}
+.oc-reading-list-progress .oc-reading-progress{height:2px;background:#0003;border-radius:100px}
+.oc-reading-list-meta{display:flex;flex-direction:column;gap:6px}
+.oc-reading-list-meta>small{font:400 12px/16px Figtree,"PingFang SC",sans-serif;color:#131921}
+.oc-reading-list-card:focus-visible{outline:2px solid #131921;outline-offset:4px}
+.oc-reading-list-card:hover{box-shadow:0 4px 12px #00000014}
+@media(max-width:1250px){.oc-reading-list-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:760px){.oc-reading-list-grid{grid-template-columns:1fr}}
+@media(max-width:400px){.oc-reading-list-cover{width:112px;height:152px}.oc-reading-list-card{gap:16px;padding:16px}}
+@media(prefers-reduced-motion:reduce){.oc-reading-list-card{transition:none}}
+
+/* Latest profile composition — Figma 126:4746. */
+#view-magazine .oc-publication.oc-lecturer-profile{padding-top:80px;margin-top:0}
+.oc-lecturer-profile .oc-main{gap:80px}
+.oc-lecturer-profile .oc-profile-first{min-height:0;padding:0;align-content:start}
+.oc-lecturer-profile .oc-profile-opinions{background:#f5f7fa;border-radius:40px;padding:80px 32px;box-sizing:border-box}
+.oc-lecturer-profile .oc-opinion-slides{padding:20px 0}
+.oc-lecturer-profile .oc-opinion-dots{background:#fff}
+.oc-profile-action-icon{display:block;flex:none}
+.oc-lecturer-profile .oc-reading-list-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.oc-lecturer-profile .oc-reading-list-card{padding:40px 20px;min-height:365px;align-self:start}
+.oc-lecturer-profile .oc-reading-list-card.is-article{min-height:230px}
+.oc-lecturer-profile .oc-reading-list-cover{width:210px;height:285px}
+.oc-reading-list-message{margin:0;border-left:4px solid #131921;padding-left:10px}
+.oc-reading-list-message>strong{display:block;font:700 12px/16px Figtree,"PingFang SC",sans-serif}
+.oc-reading-list-message>p{margin:0;color:#606266;font:400 14px/20px Figtree,"PingFang SC",sans-serif}
+.oc-reading-list-summary{display:flex;align-items:center;gap:16px;background:#f5f7fa;padding:16px;border-radius:20px;box-sizing:border-box;width:100%}
+.oc-reading-list-summary-copy{display:flex;flex-direction:column;gap:10px;flex:1;min-width:0}
+.oc-reading-list-summary-copy>div:first-child{display:flex;flex-direction:column}
+.oc-reading-list-summary-copy strong{font:700 16px/28px Figtree,"PingFang SC",sans-serif}
+.oc-reading-list-summary-copy small{font:400 12px/16px Figtree,"PingFang SC",sans-serif;color:#131921}
+.oc-reading-list-ring{position:relative;flex:none;width:88px;height:88px;display:grid;place-items:center}
+.oc-reading-list-ring svg{position:absolute;inset:0;width:88px;height:88px;transform:rotate(-90deg)}
+.oc-reading-list-ring circle{fill:none;stroke-width:10px}.oc-list-ring-track{stroke:#e4e7ed}.oc-list-ring-value{stroke:#131921;stroke-linecap:round}
+.oc-reading-list-ring strong{font:700 16px/48px Figtree,"PingFang SC",sans-serif}
+@media(max-width:1200px){.oc-lecturer-profile .oc-reading-list-grid{grid-template-columns:1fr}.oc-lecturer-profile .oc-profile-first{gap:24px}}
+@media(max-width:900px){#view-magazine .oc-publication.oc-lecturer-profile{padding-top:40px}.oc-lecturer-profile .oc-profile-first{min-height:0}.oc-lecturer-profile .oc-profile-opinions{padding:60px 24px}}
+@media(max-width:600px){.oc-lecturer-profile .oc-reading-list-card{padding:24px 20px;gap:20px;min-height:0;flex-direction:column;align-items:stretch}.oc-lecturer-profile .oc-reading-list-cover{align-self:center}.oc-lecturer-profile .oc-main{gap:60px}}
+/* Stable card text; progress replay supplies hover feedback. */
+.oc-lecturer-profile .oc-reading-list-grid{grid-auto-rows:1fr}
+.oc-lecturer-profile .oc-reading-list-card,.oc-lecturer-profile .oc-reading-list-card.is-article{align-self:stretch;min-height:365px;height:100%}
+.rd-periodical.oc-publication .oc-reading-list-card:is(:hover,:focus-visible){color:#131921;text-decoration:none}
+.rd-periodical.oc-publication .oc-reading-list-card:is(:hover,:focus-visible) h4{color:#131921}
+.rd-periodical.oc-publication .oc-reading-list-card:is(:hover,:focus-visible) .oc-reading-list-heading p{color:#909399}
+.rd-periodical.oc-publication .oc-reading-list-card:is(:hover,:focus-visible) .oc-reading-list-message p{color:#606266}
+/* Keep every reading-card label at its resting color in all link states. */
+#view-magazine .oc-reading-list-card:is(:link,:visited,:hover,:focus,:active){color:#131921}
+#view-magazine .oc-reading-list-card :is(h4,strong,small),#view-magazine .oc-reading-list-card .oc-reading-list-ring{color:#131921}
+#view-magazine .oc-reading-list-card .oc-reading-list-heading p,#view-magazine .oc-reading-list-card .oc-reading-participants{color:#909399}
+#view-magazine .oc-reading-list-card .oc-reading-list-message p{color:#606266}
+#view-magazine .oc-reading-list-card .oc-reading-list-status{color:#fff}
+
+/* Card cover opens slightly around its left-hand spine. */
+.oc-reading-list-book{position:relative;display:block;flex:none;width:210px;height:285px;perspective:900px;isolation:isolate}
+.oc-reading-list-paper{position:absolute;inset:3px 0 3px 3px;border-radius:2px;background:repeating-linear-gradient(90deg,#fff 0 1px,#e4e2dc 1px 2px);border:1px solid #e4e2dc;box-shadow:2px 3px 8px #1319210d}
+.oc-lecturer-profile .oc-reading-list-book .oc-reading-list-cover{position:relative;z-index:1;transform-origin:0 50%;transform:rotateY(0deg);backface-visibility:hidden;transition:transform 450ms cubic-bezier(.2,.8,.2,1),box-shadow 450ms cubic-bezier(.2,.8,.2,1)}
+@media(hover:hover) and (pointer:fine){.oc-reading-list-card:hover .oc-reading-list-book .oc-reading-list-cover{transform:rotateY(-18deg);box-shadow:8px 8px 16px #2121211a}}
+.oc-reading-list-card:focus-visible .oc-reading-list-book .oc-reading-list-cover{transform:rotateY(-18deg);box-shadow:8px 8px 16px #2121211a}
+@media(max-width:600px){.oc-reading-list-book{align-self:center}}
+@media(prefers-reduced-motion:reduce){.oc-lecturer-profile .oc-reading-list-book .oc-reading-list-cover{transition:none}.oc-reading-list-card:is(:hover,:focus-visible) .oc-reading-list-book .oc-reading-list-cover{transform:none}}
+/* Give the reading opinions their own viewport-height section. */
+.oc-lecturer-profile .oc-profile-opinions{height:600px;min-height:0;justify-content:center;box-sizing:border-box}
+
+/* Opinions travel horizontally; the grid preserves the tallest slide's height. */
+.oc-opinion-slides{overflow:hidden}
+.oc-opinion-slides .oc-opinion-slide{opacity:1;transition:none;transform:translateX(0)}
+
+/* Page boundaries run vertically down the magazine fore-edge. */
+.oc-book-magazine .oc-book-pages{background:repeating-linear-gradient(90deg,#fff 0 1px,#dedbd4 1px 2px)}

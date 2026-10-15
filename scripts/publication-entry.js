@@ -4,16 +4,19 @@
  async function openPublication(image,destination,source=null){
   if(matchMedia('(prefers-reduced-motion: reduce)').matches){location.hash=destination;return;}
   cleanup?.();active?.getAnimations({subtree:true}).forEach(a=>a.cancel());active?.remove();const stage=document.createElement('div');stage.className='publication-entry-stage';active=stage;
-  const rect=image.getBoundingClientRect(),sheet=document.createElement('div');sheet.className='publication-entry-sheet';
+  const volume=image.closest('[data-book-tilt]');
+  source=source||volume||image;
+  const previousVisibility=source.style.visibility;
+  const rect=(volume||image).getBoundingClientRect(),originRotation=volume?getComputedStyle(volume.querySelector('.oc-book-object')).transform:'none',sheet=document.createElement('div');sheet.className='publication-entry-sheet';
   const cover=document.createElement('div');cover.className='publication-entry-cover';const front=image.cloneNode();front.removeAttribute('id');front.removeAttribute('class');front.removeAttribute('style');const back=document.createElement('div');back.className='publication-entry-back';cover.append(front,back);sheet.append(cover);stage.append(sheet);document.body.append(stage);
   const height=Math.min(innerHeight*.72,680),width=height*14/19;
   Object.assign(sheet.style,{left:(innerWidth-width)/2+'px',top:(innerHeight-height)/2+'px',width:width+'px',height:height+'px'});
   const x=rect.left+rect.width/2-innerWidth/2,y=rect.top+rect.height/2-innerHeight/2;
   image.closest('dialog')?.close();
-  cleanup=()=>{if(source)source.style.visibility='';document.body.classList.remove('is-reading-publication');};
+  cleanup=()=>{source.style.visibility=previousVisibility;document.body.classList.remove('is-reading-publication');};
   if(source){source.style.visibility='hidden';document.body.classList.add('is-reading-publication');}
   const wait=animation=>animation.finished.catch(()=>{});
-  await wait(sheet.animate([{transform:`translate(${x}px,${y}px) scale(${rect.width/width},${rect.height/height})`},{transform:'translate(0,0) scale(1)'}],{duration:620,easing:'cubic-bezier(.2,.8,.2,1)'}));if(active!==stage)return;
+  await wait(sheet.animate([{transform:`translate(${x}px,${y}px) scale(${rect.width/width},${rect.height/height}) ${originRotation==='none'?'':originRotation}`},{transform:'translate(0,0) scale(1)'}],{duration:620,easing:'cubic-bezier(.2,.8,.2,1)'}));if(active!==stage)return;
   const turn=cover.animate([{transform:'rotateY(0deg)'},{transform:'rotateY(-180deg)'}],{duration:650,easing:'cubic-bezier(.2,.65,.2,1)',fill:'forwards'});
   const centre=sheet.animate([{transform:'translateX(0px)'},{transform:`translateX(${width/2}px)`}],{duration:650,easing:'cubic-bezier(.2,.65,.2,1)',fill:'forwards'});
   await Promise.all([wait(turn),wait(centre)]);if(active!==stage)return;

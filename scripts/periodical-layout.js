@@ -1,13 +1,14 @@
 // One reading-guide preference shared by all resource details in this tab.
+const readingGuidePreferenceKey='longyuan-reading-guide-collapsed';
 let readingGuideCollapsed=false;
-try{readingGuideCollapsed=sessionStorage.getItem('longyuan-reading-guide-collapsed')==='true';}catch{}
+try{const saved=sessionStorage.getItem(readingGuidePreferenceKey);if(saved!==null)readingGuideCollapsed=saved==='true';}catch{}
 window.readingGuideIsCollapsed=()=>readingGuideCollapsed;
 window.renderResourceChat = function(kind="期刊"){const arrow='<i class="iconfont icon-Arrow_Forward-2" aria-hidden="true"></i>';return `<aside class="pe-chat" aria-label="阅读对话"><div class="pe-guide-heading"><img class="pe-guide-avatar" src="assets/figma-details/reading-guide-avatar-v2.png" width="44" height="44" alt=""><div><h2>阅读向导</h2><p>找好文章，也帮你读得更舒服</p></div><button type="button" class="pe-chat-toggle pe-icon-button" data-pe-chat-toggle aria-label="收起对话" title="收起对话" aria-expanded="true"><i class="iconfont icon-Slider" aria-hidden="true"></i><span class="pe-tooltip">收起对话</span></button></div><div class="pe-chat-messages" aria-live="polite"><div class="pe-guide-welcome"><h3>此刻，想读点什么？</h3><p>说说你的想法，或从这里开始。</p>${[['帮我挑一篇','说说此刻的心情或兴趣，我按你的状态选'],['给自己十分钟','选一篇轻松、可读全文的短文'],['问一个主题','先告诉我想聊什么，答案带原文出处']].map(([title,desc])=>`<button class="pe-guide-prompt" data-pe-prompt="${title}"><span><strong>${title}</strong><small>${desc}</small></span>${arrow}</button>`).join('')}</div></div><div class="pe-chat-form-wrap"><form class="pe-chat-form"><textarea rows="2" aria-label="向本刊提问" placeholder="关于${kind==='期刊'?'这本刊':kind}，你想了解什么？&#10;例如：这期有哪些关于消费的文章？" required></textarea><div class="pe-chat-tools"><label class="pe-chat-attach" tabindex="0" role="button" title="添加内容" aria-label="添加内容"><i class="iconfont icon-Link" aria-hidden="true"></i><input type="file" hidden></label><button type="submit" aria-label="发送提问" title="发送提问">${arrow}</button></div></form></div></aside><button type="button" class="pe-chat-reopen pe-icon-button" data-pe-chat-toggle aria-label="展开阅读向导" title="展开阅读向导" aria-expanded="true"><img src="assets/figma-details/reading-guide-avatar-v2.png" width="44" height="44" alt=""><span class="pe-tooltip">展开阅读向导</span></button>`;};
 /* Ordinary issues: the same editorial composition is mounted on route and shelf. */
 window.renderOrdinaryPeriodical = function(m, issue) {
  const e=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
  const known=m.title==='第一财经'&&/2026.*0?9\s*期/.test(issue.label);
- const d=known?window.periodicalReference:m.title==='十月少年文学'&&/2026.*0?9\s*期/.test(issue.label)?window.octoberIssueReference:null;
+ const d=known?window.periodicalReference:m.title==='南风窗'&&/2026.*0?9\s*期/.test(issue.label)?window.nanfcIssueReference:m.title==='十月少年文学'&&/2026.*0?9\s*期/.test(issue.label)?window.octoberIssueReference:null;
  const single=d?.singlePrice||'18.00',singleOriginal=d?.singleOriginal||'48.00',annual=d?.annualPrice||'188.00',annualOriginal=d?.annualOriginal||'576.00';
  const button=(t,k,primary=false)=>`<button class="rd-button ${primary?'rd-primary':''}" data-rd-action="${k}">${t}</button>`;
  const iconButton=(label,key,icon)=>`<button class="rd-button pe-icon-button" data-rd-action="${key}" data-rd-icon="${icon}" aria-label="${label}" title="${label}"><i class="iconfont icon-${icon}" aria-hidden="true"></i><span class="pe-tooltip" role="tooltip">${label}</span></button>`;
@@ -20,8 +21,8 @@ window.renderOrdinaryPeriodical = function(m, issue) {
  const planName='purchase-plan-'+(window.periodicalRenderSerial=(window.periodicalRenderSerial||0)+1);
  const issueCover=d?.cover||(d?.related.find(a=>a.title===m.title&&a.issue===issue.label)?.cover)||issue.src||m.issues.find(a=>a.label===issue.label)?.src||m.src;
  const issueNumber=issue.label.match(/第?\s*(\d+)\s*期/)?.[1]||'—';
- const markup=`<div class="rd-page rd-periodical pe-figma-detail">
- <div class="pe-layout"><aside class="pe-identity"><div class="pe-column-edition"><span>${e(m.title==='第一财经'?'商业财经':m.category)}</span></div><div class="pe-identity-top"><h1>${e(m.title)}</h1><div class="pe-metadata"><span>${d?'月刊': '期刊'}</span><details class="pe-issue-picker"><summary>${e(issue.label)}<i class="iconfont icon-Arrow_Forward-2" aria-hidden="true"></i></summary><div>${m.issues.map((a,i)=>`<a href="#/magazine/${encodeURIComponent(m.title)}?issue=${i}">${e(a.label)}</a>`).join('')}</div></details><div class="pe-social">${iconButton('收藏','save','mark')}${iconButton('分享','share','Share')}</div></div></div>
+ let markup=`<div class="rd-page rd-periodical pe-figma-detail">
+ <div class="pe-layout"><aside class="pe-identity"><div class="pe-column-edition"><span>${e(m.title==='第一财经'?'商业财经':m.category)}</span></div><div class="pe-identity-top"><h1>${e(m.title)}</h1><div class="pe-metadata"><span>${e(d?.frequency||(d?'月刊':'期刊'))}</span><details class="pe-issue-picker"><summary>${e(issue.label)}<i class="iconfont icon-Arrow_Forward-2" aria-hidden="true"></i></summary><div>${m.issues.map((a,i)=>`<a href="#/magazine/${encodeURIComponent(m.title)}?issue=${i}">${e(a.label)}</a>`).join('')}</div></details><div class="pe-social">${iconButton('收藏','save','mark')}${iconButton('分享','share','Share')}</div></div></div>
 
  <div class="pe-purchase"><div class="pe-plans" role="radiogroup" aria-label="选择购买方式"><div class="pe-plan-heading"><strong>选择购买方式</strong></div>${[['single','单期购买','仅购买当前1期','￥'+single,'¥'+singleOriginal],['annual','全年订购','全年订阅更优惠','￥'+annual,'¥'+annualOriginal]].map(([value,title,desc,price,original])=>`<label class="pe-plan"><div class="pe-plan-row"><input type="radio" name="${planName}" value="${value}" ${value==='single'?'checked':''}><i class="pe-plan-selector iconfont icon-${value==='single'?'Check':'UnSelect'}" aria-hidden="true"></i><span class="pe-plan-copy"><strong>${title}</strong><small>${desc}</small></span><span class="pe-plan-price"><strong>${d?price:'待配置'}</strong><small>原价：<del>${d?original:'待配置'}</del></small></span></div>${value==='annual'?`<span class="pe-plan-benefits"><span class="pe-benefits-content"><span><i class="iconfont icon-SuccessII" aria-hidden="true"></i><span>该本杂志即日起至未来1年内所有更新电子版杂志的使用权限</span></span><span><i class="iconfont icon-SuccessII" aria-hidden="true"></i><span>赠送该杂志的部分往期的杂志的使用权限，有效期1年</span></span></span></span>`:''}</label>`).join('')}</div></div>
 
@@ -58,7 +59,7 @@ document.addEventListener('click',event=>{
  const root=button.closest('.rd-periodical');if(!root)return;
  const collapsed=!root.classList.contains('pe-chat-collapsed');
  readingGuideCollapsed=collapsed;
- try{sessionStorage.setItem('longyuan-reading-guide-collapsed',String(collapsed));}catch{}
+ try{sessionStorage.setItem(readingGuidePreferenceKey,String(collapsed));}catch{}
  root.classList.toggle('pe-chat-collapsed',collapsed);
  document.querySelectorAll('.rd-periodical').forEach(other=>{if(other!==root)applyGuidePreference(other);});
  const chat=root.querySelector('.pe-chat'),reopen=root.querySelector('.pe-chat-reopen');
